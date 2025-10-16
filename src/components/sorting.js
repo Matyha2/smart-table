@@ -25,13 +25,8 @@ export function initSorting(columns) {
                     order = column.dataset.value;
                 }
             });
-        } if (field && order && order !== 'none') {
-            return Object.assign({}, query, {
-                sort: field,
-                order: order
-            });
-        }
-
-         return query;
+        } 
+        const sort = (field && order !== 'none') ? `${field}:${order}` : null;
+        return sort ? Object.assign({}, query, { sort }) : query;
     }
 }

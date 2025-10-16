@@ -1,4 +1,3 @@
-import {createComparison, defaultRules} from "../lib/compare.js";
 
 export function initFiltering(elements) {
     const updateIndexes = (elements, indexes) => {
@@ -17,7 +16,7 @@ export function initFiltering(elements) {
          // @todo: #4.2 — обработать очистку поля
         if (action?.name === 'clear') {
             const field = action.dataset.field;
-            const input = action.closest('.filter-field').querySelector('input');
+            const input = action.parentElement.querySelector('input');
             if (input) {
                 input.value = '';
                 state[field] = '';
